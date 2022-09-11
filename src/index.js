@@ -1,12 +1,12 @@
 import React from 'react';
+import App from './App';
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
-import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import App from './App';
 import {FontStyle} from "./themes/FontStyle"
 import {GlobalStyle} from "./themes/GlobalStyle"
+import reportWebVitals from './reportWebVitals';
 // import setupInterceptors from "./services/setupInterceptors";
 
 const container = document.getElementById('root');
