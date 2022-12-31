@@ -1,6 +1,5 @@
 import React from 'react';
 import { Counter } from '../app/features/counter/Counter';
-import '../App.css';
 
 function Home() {
   return (
