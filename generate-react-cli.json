@@ -31,6 +31,15 @@
       "withStyle": true,
       "withTest": false,
       "withIndex": true
+    },
+    "redux": {
+      "customTemplates": {
+        "component": "templates/redux/TemplateNameSlice.js",
+        "index": "templates/redux/TemplateNameActions.js"
+      },
+      "path": "src/app/features",
+      
+      "withIndex": true
     }
   }
 }

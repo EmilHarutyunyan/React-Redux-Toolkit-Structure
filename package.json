@@ -25,7 +25,8 @@
     "build": "vite build && react-compress",
     "preview": "vite preview",
     "component": "generate-react component",
-    "page": "generate-react component  --type=page"
+    "page": "generate-react component  --type=page",
+    "redux": "generate-react component  --type=redux"
   },
   "browserslist": {
     "production": [
