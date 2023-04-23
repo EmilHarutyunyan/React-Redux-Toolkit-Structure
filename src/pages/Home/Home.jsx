@@ -1,10 +1,9 @@
-import React from 'react';
-import { Counter } from '../app/features/counter/Counter';
-
-function Home() {
+import React from 'react'
+import { Counter } from '../../app/features/counter/Counter';
+const Home = () => {
   return (
     <div className="App">
-      <header className="App-header">
+      <section className="App-header">
         <Counter />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -47,9 +46,9 @@ function Home() {
             React Redux
           </a>
         </span>
-      </header>
+      </section>
     </div>
   );
 }
 
-export default Home;
+export default Home

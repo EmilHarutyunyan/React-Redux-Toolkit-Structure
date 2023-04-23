@@ -1,12 +1,29 @@
 import React from 'react'
-import {Outlet} from "react-router-dom"
-import { Wrapper } from './Layout.styles'
+import {NavLink, Outlet, ScrollRestoration} from "react-router-dom"
+import { ABOUT, BLOG, HOME } from '../router/route-path';
 const Layout = () => {
+
+   let getKey = React.useCallback(
+    (location, matches) => {
+      let match = matches.find((m) => (m.handle)?.scrollMode);
+      if ((match?.handle)?.scrollMode === "pathname") {
+        return location.pathname;
+      }
+      return location.key;
+    },
+    []
+  );
   return (
-    <Wrapper>
+    <>
+      <header>
+        <NavLink to={HOME}>Home</NavLink>
+        <NavLink to={ABOUT}>About</NavLink>
+        <NavLink to={BLOG}>Blog</NavLink>
+      </header>
       <Outlet />
-    </Wrapper>
-  )
+      <ScrollRestoration getKey={getKey} />
+    </>
+  );
 }
 
 export default Layout

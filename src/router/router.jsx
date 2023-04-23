@@ -1,32 +1,60 @@
 import React from 'react'
-import {Navigate, Route,Routes, useLocation} from "react-router-dom"
-import PrivateRouter from './PrivateRouter'
+import {Navigate, Route,createBrowserRouter,createRoutesFromElements} from "react-router-dom"
+// import PrivateRouter from './PrivateRouter'
 
 import Layout from '../layout/Layout'
-// Pages
-import Home from '../pages/Home'
-import Profil from '../pages/Profile'
-import Login from '../pages/Login'
-import Register from "../pages/Register"
+import { ABOUT, BLOG, HOME, NOT_FOUND_PAGE } from './route-path'
 import TokenService from '../services/token.service'
+// Pages
+import { About, Blog, ErrorPage, Home, Login, NotFoundPage } from "../pages";
+import PrivateRouter from './PrivateRouter'
 
-const Router = () => {
+
+
   const user = TokenService.getUser() || null
-  const location = useLocation()
- 
-  const pathName = location.state?.from || '/'
-
-  return (
-    <Routes>
-      <Route path="/" element={<Layout/>}>
-        <Route index element={<Home />}/>
-        <Route path='/profile' element={<PrivateRouter><Profil /></PrivateRouter>} />
-        { user ? <Route path='/login' element={<Navigate to={pathName} />} /> : <Route path='/login' element={<Login/>} /> }
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path={HOME} element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route
+          path={ABOUT}
+          element={<About />}
+          handle={{ scrollMode: "pathname" }}
+        />
+        <Route
+          path={BLOG}
+          element={
+            <PrivateRouter>
+              <Blog />
+            </PrivateRouter>
+          }
+          errorElement={<ErrorPage/>}
+        />
+        {user ? (
+          <Route path="/login" element={<Navigate to={"/"} />} />
+        ) : (
+          <Route path="/login" element={<Login />} />
+        )}
+        {/* <Route
+          path="/profile"
+          element={
+            <PrivateRouter>
+              <Profile />
+            </PrivateRouter>
+          }
+  
+        />
         
-        { user ? <Route path='/register' element={<Navigate to="/" />} /> : <Route path='/register' element={<Register/>} /> }
-      </Route> 
-    </Routes>
-  )
-}
+  
+        {user ? (
+          <Route path="/register" element={<Navigate to="/" />} />
+        ) : (
+          <Route path="/register" element={<Register />} />
+        )} */}
+        <Route path={NOT_FOUND_PAGE} element={<NotFoundPage />} />
+      </Route>
+    )
+  );
 
-export default Router
+export default router
+
