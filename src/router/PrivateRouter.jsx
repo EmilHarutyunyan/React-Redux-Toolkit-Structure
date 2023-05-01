@@ -6,7 +6,7 @@ const PrivateRouter = ({ children }) => {
   const location = useLocation();
   const user = TokenService.getUser() || false;
   if (!user) {
-    return <Navigate to="/login" state={{ from: location.pathname }} replace />;
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
   return children;
 };

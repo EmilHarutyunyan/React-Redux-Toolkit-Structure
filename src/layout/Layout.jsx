@@ -20,7 +20,9 @@ const Layout = () => {
         <NavLink to={ABOUT}>About</NavLink>
         <NavLink to={BLOG}>Blog</NavLink>
       </header>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <ScrollRestoration getKey={getKey} />
     </>
   );

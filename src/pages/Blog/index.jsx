@@ -1,2 +1,3 @@
-import Blog from './Blog.lazy';
-export default Blog;
+import Blog from "./Blog.lazy";
+import SingleBlog from "./SingleBlog.lazy";
+export { Blog, SingleBlog };

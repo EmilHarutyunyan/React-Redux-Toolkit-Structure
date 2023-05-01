@@ -26,11 +26,15 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
+  button {
+    border: none;
+    background-color: transparent;
+  }
 
 
 
 header {
-  background-color: #2C2C32;
+  background-color: #000000;
   padding: 2rem 0;
   text-align: center;
   margin-bottom: 60px;
@@ -48,6 +52,9 @@ h1, h2, h3 {
   text-align: center;
   margin-top: 0;
 }
+h1 {
+  margin-bottom: 10px;
+}
 
 .container {
   max-width: 900px;
@@ -56,23 +63,25 @@ h1, h2, h3 {
   margin: 0 auto;
 }
 
-
+main {
+  max-width:1310px;
+  margin:0 auto;
+}
 main a {
   text-decoration: none;
-  color: #fff;
+  color: #000000;
 }
 main a:hover {
   text-decoration: underline;
 }
 
 .active {
-  color: #095797c7;
+  text-decoration: underline;
   cursor: default;
 }
 
 form {
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 1rem;
 }
