@@ -5,10 +5,11 @@ import { selectPosts, setLatest, setSearch } from '../../app/features/posts/post
 const BlogFilter = ({ postQuery, latest, setSearchParams }) => {
   const dispatch = useDispatch()
   const posts = useSelector(selectPosts)
-  console.log('posts :', posts);
   useEffect(() => {
+    if (postQuery || latest) {
     dispatch(setSearch(postQuery));
     dispatch(setLatest(latest));
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [postQuery, latest]);
 

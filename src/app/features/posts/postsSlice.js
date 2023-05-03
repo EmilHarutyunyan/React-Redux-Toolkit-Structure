@@ -28,7 +28,7 @@ const postsSlice = createSlice({
       state.message = initialState.message
     },
     resetPost: (state) => {
-      state.posts= initialState.post
+      state.post= initialState.post
       state.error = initialState.error
       state.message = initialState.message
     },
